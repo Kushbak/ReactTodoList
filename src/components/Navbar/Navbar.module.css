@@ -1,0 +1,4 @@
+.navbarBlock{
+    grid-area: navbar;
+    background: rgba(247, 142, 5, 1);
+}
