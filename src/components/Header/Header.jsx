@@ -1,15 +1,16 @@
 import React from 'react';
 import styles from './Header.module.css';
+import { NavLink } from 'react-router-dom';
 
 const Header = (props) => {
     return(
         <div className={styles.headerBlock}>
             <div className={styles.logo}>
-                <p className={styles.logo}>Todo List</p> 
+                <NavLink to='/' className={styles.logo}>Todo List</NavLink> 
             </div>
-            <div className={styles.changeTheme}>
+            <button className={styles.changeTheme}>
                 Change
-            </div>
+            </button>
         </div>
     )
 }
