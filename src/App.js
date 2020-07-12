@@ -2,9 +2,10 @@ import React from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
-import TasksPage from './components/TasksPage/TasksPage';
+import Main from './components/Main/Main';
 import ImportantTasks from './components/ImportantTasks/ImportantTasks';
 import { Route } from 'react-router-dom';
+import ArchiveTasks from './components/ArchiveTasks/ArchiveTasks';
 
 
 const App = () => { 
@@ -13,8 +14,9 @@ const App = () => {
             <Header />
             <Navbar /> 
             <div className="main" >
-                <Route path='/tasks' render={() => <TasksPage />}/>
+                <Route exact path='/' render={() => <Main />}/>
                 <Route path='/importantTasks' render={() => <ImportantTasks />}/>    
+                <Route path='/archiveTasks' render={() => <ArchiveTasks />}/>    
             </div>
         </div>
     );
