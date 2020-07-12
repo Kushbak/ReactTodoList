@@ -1,4 +1,12 @@
 .navbarBlock{
+    display: flex;
+    flex-direction: column;
     grid-area: navbar;
     background: rgba(247, 142, 5, 1);
+    text-align: center;
+    padding: 20px 0;
+}
+
+.navbarBlock__link{
+    margin-top: 10px;
 }
