@@ -5,7 +5,8 @@ import { NavLink } from 'react-router-dom';
 const Navbar = (props) => {
     return(
         <div className={styles.navbarBlock}>
-            <NavLink to='/importantTasks'>Important</NavLink>
+            <NavLink className={styles.navbarBlock__link} to='/importantTasks'>Important</NavLink>
+            <NavLink className={styles.navbarBlock__link} to='/archiveTasks'>Archive</NavLink>
         </div>
     )
 }
