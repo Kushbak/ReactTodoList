@@ -8,26 +8,35 @@ let initialState = {
         {id: 6, descr: 'Thats the first task for test6', date: '11.02.20 23:52', isImportant: true}
     ],
     importantTasks: [],
-    taskInput: ''
+    archivedTasks: []
 }
 
 const tasksReducer = (state = initialState, action) => {
     switch(action.type) {
-        case 'SET_TASKS': {
+        case 'SET_TASKS': 
             return {
                 ...state,
                 allTasks: [...action.allTasks]
-            }
-        }
-        case 'ADD_NEW_TASK': { 
+            } 
+        case 'ADD_NEW_TASK': {
             let newTask = {
                 ...action.task
             }
             return {
                 ...state,
                 allTasks: [...state.allTasks, newTask]    // либо можно этот кейс удалить и при создании нового таска перевызвать SET_TASKS
+            } 
+        }
+        case 'ADD_TO_IMPORTANT': 
+            return{
+                ...state,
+                importantTasks: [...state.importantTasks, action.importantTask]
             }
-        } 
+        case 'ADD_TO_ARCHIVE': 
+            return{
+                ...state,
+                archivedTasks: [...state.archivedTasks, action.archivedTask]
+            }
         default:
             return state;
     }
