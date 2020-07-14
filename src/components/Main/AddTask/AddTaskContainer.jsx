@@ -1,7 +1,7 @@
 import React from 'react'; 
 import AddTask from './AddTask';
 import { connect } from 'react-redux';
-import { addNewTask } from '../../../actions/tasks'
+import { addNewTask } from '../../../reducers/tasksReducer'
 
 class AddTaskContainer extends React.Component {
     render(){
