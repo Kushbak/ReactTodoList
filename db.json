@@ -1,0 +1,48 @@
+{
+  "users": [
+    {
+      "fullName": "Kushbak Mamytov",
+      "password": "123456789",
+      "id": 1
+    },
+    {
+      "fullName": "asd dsa",
+      "password": "111111",
+      "id": 2
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "description": "first testing task1",
+      "isImportant": true,
+      "isArchived": false,
+      "date": "13:30 14.07.2020",
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "description": "first testing task2",
+      "isImportant": false,
+      "isArchived": false,
+      "date": "13:10 14.07.2020",
+      "userId": 1
+    },
+    {
+      "id": 3,
+      "description": "first testing task3",
+      "isImportant": true,
+      "isArchived": false,
+      "date": "16:10 14.07.2021",
+      "userId": 2
+    },
+    {
+      "description": "first testing task6",
+      "isImportant": true,
+      "isArchived": false,
+      "date": "16:10 14.07.2021",
+      "userId": 2,
+      "id": 4
+    }
+  ]
+}
