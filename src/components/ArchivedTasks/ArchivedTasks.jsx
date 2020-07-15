@@ -1,19 +1,23 @@
-import React from 'react';
+import React from 'react'; 
 import styles from './ArchivedTasks.module.css';
+import { connect } from 'react-redux';
 
-
-const ArchivedTasks = (props) => {
-    return(
-        <div className={styles.archivedTasksBlock}>
-            { 
-                props.archivedTasks.map(t => (
-                    <div className={styles.task} key={t.id}>
-                        <p className={styles.task__descr}>{t.descr}</p> 
-                    </div>
-                ))
-            }
-        </div>
-    )
+class ArchivedTasks extends React.Component {
+    render(){
+        return(
+            <div className={styles.archivedTasksBlock}>
+                { this.props.archivedTasks.map(t => (
+                        <div className={styles.task} key={t.id}>
+                            <p className={styles.task__descr}>{t.descr}</p> 
+                        </div>
+                )) }
+            </div>
+        )
+    }
 }
 
-export default ArchivedTasks;
+let mstp = (state) => ({
+    tasks: state.tasksData.tasks
+})
+
+export default connect(mstp, {})(ArchivedTasks);
