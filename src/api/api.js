@@ -9,13 +9,12 @@ export const tasksApi = {
     getTasks(userId) {
         return instance.get(`tasks?userId=${userId}`)
     },
-    addTask(userId, data) {
-        return instance.post(`tasks?userId=${userId}`, {
+    addTask(data) {
+        return instance.post(`tasks?userId=${data.userId}`, {
             "description": data.description,
-            "isImportant": data.important,
-            "isArchived": data.archived,
-            "date": data.date,
-            "userId": userId
+            "isImportant": data.isImportant,
+            "isArchived": data.isArchived, 
+            "userId": data.userId
         })
     },
     addToImportant(userId, taskId, bool){
@@ -27,5 +26,21 @@ export const tasksApi = {
         return instance.put(`tasks?userId=${userId}&id=${taskId}`, {
             "isArchived": bool
         })
+    }
+}
+
+
+export const usersApi = {
+    checkUser(fullName) {
+        return instance.get(`users`, { params: { 'fullName': fullName } })
+    }, 
+    register(data){
+        return instance.post(`users`, {
+            "fullName": data.fullName,
+            "password": data.password 
+        })
+    },
+    login(userId){
+        return instance.get(`users?id=${userId}`)
     }
 }
