@@ -10,7 +10,7 @@ class AddTaskContainer extends React.Component {
 }
 
 const mstp = (state) => ({
-    tasks: state.tasksData.allTasks
+    tasks: state.tasksData.tasks
 })
 
 export default connect(mstp, { addNewTask })(AddTaskContainer);
