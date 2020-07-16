@@ -1,0 +1,29 @@
+.loginPage{
+    padding: 20px;
+}
+
+h2{
+    padding: 20px;
+}
+.LogOrChange span{
+    color: green;
+    cursor: pointer;
+}
+
+
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+.input{ 
+    width: 80%;
+    height: 30px;
+    padding: 10px;
+    margin: 10px auto;
+}
+.form button{
+    height: 30px;
+    width: 20%;
+    margin: 20px auto;
+}
