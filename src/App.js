@@ -8,6 +8,7 @@ import ArchivedTasks from './components/ArchivedTasks/ArchivedTasks';
 import ImportantTasks from './components/ImportantTasks/ImportantTasks';
 import { connect } from 'react-redux';
 import { setTasks } from './reducers/tasksReducer'
+import LoginContainer from './components/Login/LoginContainer';
 
 class App extends React.Component {  
     componentDidMount(){
@@ -18,11 +19,15 @@ class App extends React.Component {
             <div className="app" >
                 <Header />
                 <Navbar /> 
-                <div className="main" >
-                    <Route exact path='/' render={() => <Main />}/>
-                    <Route path='/importantTasks' render={() => <ImportantTasks />}/>    
-                    <Route path='/archivedTasks' render={() => <ArchivedTasks />}/>    
-                </div>
+                {!this.props.isAuth
+                    ?   <LoginContainer />
+                    : <div className="main" >
+                            <Route exact path='/' render={() => <Main />}/>
+                            <Route path='/importantTasks' render={() => <ImportantTasks />}/>    
+                            <Route path='/archivedTasks' render={() => <ArchivedTasks />}/>    
+                    </div>
+                }
+                
             </div>
         );
     }
@@ -30,7 +35,8 @@ class App extends React.Component {
 
 const mstp = (state) => {
     return ({
-        tasks: state.tasksData.tasks
+        tasks: state.tasksData.tasks,
+        isAuth: state.usersData.isAuth
     })
 }
  
