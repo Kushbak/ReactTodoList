@@ -5,6 +5,7 @@
     background: rgba(247, 142, 5, 1);
     text-align: center;
     padding: 20px 0;
+    min-height: calc(100vh - 60px);
 }
 
 .navbarBlock__link{
