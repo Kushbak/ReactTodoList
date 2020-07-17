@@ -6,7 +6,7 @@ const instance = axios.create({
 
 
 export const tasksApi = {
-    getTasks(userId) {
+    getTasks(userId) { 
         return instance.get(`tasks?userId=${userId}`)
     },
     addTask(data) {
@@ -36,8 +36,8 @@ export const usersApi = {
     }, 
     register(data){
         return instance.post(`users`, {
-            "fullName": data.fullName,
-            "password": data.password 
+            "fullName": data.newName,
+            "password": data.newPassword 
         })
     },
     login(userId){
