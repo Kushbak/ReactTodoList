@@ -6,7 +6,7 @@ class ArchivedTasks extends React.Component {
     render(){
         return(
             <div className={styles.archivedTasksBlock}>
-                { this.props.archivedTasks.map(t => (
+                { this.props.tasks.map(t => (
                         <div className={styles.task} key={t.id}>
                             <p className={styles.task__descr}>{t.descr}</p> 
                         </div>
