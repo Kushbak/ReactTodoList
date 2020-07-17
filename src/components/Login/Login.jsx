@@ -8,7 +8,7 @@ const LoginPage = (props) => {
     const [isLogin, setLogin] = useState(true)
     return(
         <div className={styles.loginPage}>
-            { isLogin ? <Login /> : <Register /> } 
+            { isLogin ? <Login login={props.login} /> : <Register register={props.register} /> } 
             <p className={styles.LogOrChange}>or
                 { isLogin 
                     ? <span onClick={ () => setLogin(false) } > Register</span> 
@@ -24,7 +24,6 @@ export default LoginPage;
 const LoginForms = (props) => {
 
     const goLogin = (formData) => {
-        debugger
         props.login(formData);
     }
 
@@ -32,9 +31,10 @@ const LoginForms = (props) => {
         <div className={styles.loginBlock}>
             <h2>Login</h2>
             <form onSubmit={ props.handleSubmit(goLogin) } className={styles.form} >
-                <Field className={styles.input} component='input' name='newName' type='text' placeholder='Your Full Name' /> 
-                <Field className={styles.input} component='input' name='newPassword' type='password' placeholder='Your Password' /> 
+                <Field className={styles.input} component='input' name='fullName' type='text' placeholder='Your Full Name' /> 
+                <Field className={styles.input} component='input' name='password' type='password' placeholder='Your Password' /> 
                 <button>Login</button>
+                { props.error && <div className={styles.wrongData}>{ props.error }</div> }
             </form> 
         </div>
     )
@@ -45,7 +45,6 @@ const Login = reduxForm({ form: 'login' })(LoginForms)
 const RegisterForms = (props) => {
 
     const goRegister = (formData) => {
-        debugger
         props.register(formData);
     }
 
@@ -53,9 +52,10 @@ const RegisterForms = (props) => {
         <div className={styles.registerBlock}>
             <h2>Register</h2>
             <form onSubmit={ props.handleSubmit(goRegister) } className={styles.form} >
-                <Field className={styles.input} component='input' name='fullName' type='text' placeholder='Full Name' /> 
-                <Field className={styles.input} component='input' name='password' type='password' placeholder='Password' /> 
+                <Field className={styles.input} component='input' name='newName' type='text' placeholder='Full Name' /> 
+                <Field className={styles.input} component='input' name='newPassword' type='password' placeholder='Password' /> 
                 <button>Register</button>
+                { props.error && <div className={styles.wrongData}>{ props.error }</div> }
             </form>
         </div>
     )
