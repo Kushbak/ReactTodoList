@@ -1,5 +1,7 @@
 .loginPage{
     padding: 20px;
+    grid-area: login; 
+    
 }
 
 h2{
@@ -14,7 +16,7 @@ h2{
 .form{
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 40%; 
 }
 .input{ 
     width: 80%;
@@ -26,4 +28,8 @@ h2{
     height: 30px;
     width: 20%;
     margin: 20px auto;
+}
+
+.wrongData{
+    color: red;
 }
