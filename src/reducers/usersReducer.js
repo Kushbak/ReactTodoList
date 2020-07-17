@@ -1,8 +1,7 @@
 import { stopSubmit } from "redux-form";
 import { usersApi } from "../api/api";
 
-let initialState = {
-    userData: [],
+let initialState = { 
     isAuth: false
 }
 
@@ -11,7 +10,7 @@ export const usersReducer = (state = initialState, action) => {
         case 'SET_AUTH_USER_DATA': 
             return {
                 ...state,
-                userData: [ ...action.userData ],
+                ...action.userData,
                 isAuth: action.isAuth
             };  
         default:
@@ -30,12 +29,10 @@ export const setAuthUserData = (userData, isAuth) => ({
 export const login = (formData) => (dispatch) => { 
     usersApi.checkUser(formData.fullName)
         .then(r => {
-            debugger
             if (r.data.length && formData.password == r.data[0].password) {
                 usersApi.login(r.data[0].id)
                     .then(res => { 
-                        debugger
-                        dispatch(setAuthUserData(res.data, true)); 
+                        dispatch(setAuthUserData(res.data[0], true)); 
                     })
             } else {
                 dispatch(stopSubmit('login', { _error: 'Неправильный логин или пароль' })); 
@@ -48,10 +45,8 @@ export const logout = () => (dispatch) => {
 }
 
 export const register = (formData) => (dispatch) => {
-    debugger
-    usersApi.checkUser(formData.fullName)
+    usersApi.checkUser(formData.newName)
         .then(r => {
-            debugger
             if (r.status === 400) {
                 dispatch(stopSubmit('register', { _error: 'Такое имя пользователя уже существует' }));
             }
