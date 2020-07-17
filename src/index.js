@@ -10,6 +10,7 @@ import { Provider } from 'react-redux';
 import rootReducer from './reducers'
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
+window.store = store;
 
 ReactDOM.render(
 	<React.StrictMode>
