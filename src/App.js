@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
@@ -11,21 +11,20 @@ import { setTasks } from './reducers/tasksReducer'
 import LoginContainer from './components/Login/LoginContainer';
 
 class App extends React.Component {  
-    componentDidMount(){
-        this.props.setTasks(1)
-    }
     render(){
         return (
             <div className="app" >
-                <Header />
-                <Navbar /> 
+                <Header isAuth={this.props.isAuth} fullName={this.props.fullName} />
                 {!this.props.isAuth
-                    ?   <LoginContainer />
-                    : <div className="main" >
-                            <Route exact path='/' render={() => <Main />}/>
-                            <Route path='/importantTasks' render={() => <ImportantTasks />}/>    
-                            <Route path='/archivedTasks' render={() => <ArchivedTasks />}/>    
-                    </div>
+                    ? <LoginContainer />
+                    : <>
+                        <Navbar /> 
+                        <div className="main" >
+                                <Route exact path='/' render={() => <Main userId={this.props.userId} setTasks={this.props.setTasks} isAuth={this.props.isAuth} />}/>
+                                <Route path='/importantTasks' render={() => <ImportantTasks />}/>    
+                                <Route path='/archivedTasks' render={() => <ArchivedTasks />}/>    
+                        </div>
+                    </>
                 }
                 
             </div>
@@ -33,11 +32,10 @@ class App extends React.Component {
     }
 }
 
-const mstp = (state) => {
-    return ({
-        tasks: state.tasksData.tasks,
-        isAuth: state.usersData.isAuth
-    })
-}
+const mstp = (state) => ({ 
+    isAuth: state.usersData.isAuth,
+    userId: state.usersData.id,
+    fullName: state.usersData.fullName
+})
  
 export default connect(mstp, { setTasks })(App);
