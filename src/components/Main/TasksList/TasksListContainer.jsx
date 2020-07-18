@@ -1,7 +1,7 @@
 import React from 'react'; 
 import TasksList from './TasksList';
 import { connect } from 'react-redux';
-import { addToImportant } from '../../../reducers/tasksReducer';
+import { addToImportant, addToArchive } from '../../../reducers/tasksReducer';
 
 class TasksListContainer extends React.Component {
     render() {
@@ -11,8 +11,9 @@ class TasksListContainer extends React.Component {
 
 const mstp = (state) => {
     return ({
-        tasks: state.tasksData.tasks
+        tasks: state.tasksData.tasks,
+        userId: state.usersData.id
     })
 }
 
-export default connect(mstp, { addToImportant })(TasksListContainer);
+export default connect(mstp, { addToImportant, addToArchive })(TasksListContainer);
