@@ -1,7 +1,10 @@
 import * as axios from 'axios';
 
 const instance = axios.create({
-    baseURL: 'http://localhost:8000',
+    baseURL: 'http://localhost:8000/',
+    headers: {
+        "Content-type": "application/json; charset=UTF-8"
+    }
 })
 
 
@@ -17,13 +20,13 @@ export const tasksApi = {
             "userId": data.userId
         })
     },
-    addToImportant(userId, taskId, bool){
-        return instance.put(`tasks?userId=${userId}&id=${taskId}`, {
+    addToImportant(taskId, bool){ 
+        return instance.patch(`tasks/${taskId}`, {
             "isImportant": bool
         })
     },
-    addToArchive(userId, taskId, bool){
-        return instance.put(`tasks?userId=${userId}&id=${taskId}`, {
+    addToArchive(taskId, bool){
+        return instance.patch(`tasks/${taskId}`, {
             "isArchived": bool
         })
     }
