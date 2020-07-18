@@ -48,22 +48,23 @@ export const addNewTaskSuccess = (task) => ({
     task
 })
 
-export const addToImportantSuccess = (importantTask) => ({
-    type: 'ADD_TO_IMPORTANT',
-    importantTask
-})
+// export const addToImportantSuccess = (importantTask) => ({
+//     type: 'ADD_TO_IMPORTANT',
+//     importantTask
+// })
 
-export const addToArchiveSuccess = (archivedTask) => ({
-    type: 'ADD_TO_ARCHIVE',
-    archivedTask
-})
+// export const addToArchiveSuccess = (archivedTask) => ({
+//     type: 'ADD_TO_ARCHIVE',
+//     archivedTask
+// })
 
 
 // Thunks
 
-export const setTasks = (userId) => (dispatch) => { 
+export const setTasks = (userId) => (dispatch) => {
+    
     tasksApi.getTasks(userId)
-        .then(res => { 
+        .then(res => {  
             dispatch(setTasksSuccess(res.data))
         })
 } 
@@ -75,16 +76,17 @@ export const addNewTask = (data) => (dispatch) => {
         })
 }
 
-export const addToImportant = (userId, taskId, bool) => (dispatch) => {
-    tasksApi.addToImportant(userId, taskId, bool)
-        .then(res => {
-            dispatch(addToImportantSuccess(res.data))
+export const addToImportant = (userId, taskId, bool) => (dispatch) => { 
+    tasksApi.addToImportant(taskId, bool)
+        .then(res => { 
+            debugger
+            dispatch(setTasks(userId)) 
         })
 }
 
 export const addToArchive = (userId, taskId, bool) => (dispatch) => {
-    tasksApi.addToArchive(userId, taskId, bool)
+    tasksApi.addToArchive(taskId, bool)
         .then(res => {
-            dispatch(addToArchiveSuccess(res.data))
+            dispatch(setTasks(userId))
         })
 }
