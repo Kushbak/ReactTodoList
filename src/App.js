@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
@@ -14,13 +14,13 @@ class App extends React.Component {
     render(){
         return (
             <div className="app" >
-                <Header isAuth={this.props.isAuth} fullName={this.props.fullName} />
+                <Header isAuth={this.props.isAuth} fullName={this.props.fullName}  userId={this.props.userId} setTasks={this.props.setTasks} />
                 {!this.props.isAuth
                     ? <LoginContainer />
                     : <>
                         <Navbar /> 
                         <div className="main" >
-                                <Route exact path='/' render={() => <Main userId={this.props.userId} setTasks={this.props.setTasks} isAuth={this.props.isAuth} />}/>
+                                <Route exact path='/' render={() => <Main />}/>
                                 <Route path='/importantTasks' render={() => <ImportantTasks />}/>    
                                 <Route path='/archivedTasks' render={() => <ArchivedTasks />}/>    
                         </div>
