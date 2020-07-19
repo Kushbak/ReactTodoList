@@ -17,6 +17,11 @@
       "fullName": "test",
       "password": "1",
       "id": 4
+    },
+    {
+      "fullName": "testtest",
+      "password": "1",
+      "id": 5
     }
   ],
   "tasks": [
@@ -132,18 +137,17 @@
       "id": 21
     },
     {
-      "description": "WEFWEG",
-      "isImportant": false,
-      "isArchived": false,
-      "userId": 4,
-      "id": 22
-    },
-    {
       "description": "asdasd",
       "isArchived": false,
       "userId": 4,
       "id": 23,
       "isImportant": true
+    },
+    {
+      "description": "фывфыв",
+      "isArchived": true,
+      "userId": 4,
+      "id": 24
     }
   ]
 }
