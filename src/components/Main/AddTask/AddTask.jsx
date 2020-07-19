@@ -9,9 +9,11 @@ const AddTask = (props) => {
             isImportant: formData.isImportant,
             isArchived: false,
             userId: props.userId
-        }
-        
+            // userId: props.userId
+        } 
         props.addNewTask(taskData) 
+        formData.taskDescr = ''
+        formData.isImportant = false
     }
     return(
         <div className={styles.addTaskBlock}>
