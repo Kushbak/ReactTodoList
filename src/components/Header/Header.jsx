@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './Header.module.css';
 import { NavLink } from 'react-router-dom';
 
 const Header = (props) => {
+    useEffect(() => {
+        // if(props.isAuth){
+            props.setTasks(4)
+        // }
+    })
     return(
         <div className={styles.headerBlock}>
             <div className={styles.logo}>
