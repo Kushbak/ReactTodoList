@@ -4,9 +4,9 @@ import { NavLink } from 'react-router-dom';
 
 const Header = (props) => {
     useEffect(() => {
-        // if(props.isAuth){
+        if(props.isAuth){
             props.setTasks(props.userId)
-        // }
+        }
     })
     return(
         <div className={styles.headerBlock}>
