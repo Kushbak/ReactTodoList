@@ -62,7 +62,6 @@ export const addNewTaskSuccess = (task) => ({
 // Thunks
 
 export const setTasks = (userId) => (dispatch) => {
-    
     tasksApi.getTasks(userId)
         .then(res => {  
             dispatch(setTasksSuccess(res.data))
@@ -78,8 +77,7 @@ export const addNewTask = (data) => (dispatch) => {
 
 export const addToImportant = (userId, taskId, bool) => (dispatch) => { 
     tasksApi.addToImportant(taskId, bool)
-        .then(res => { 
-            debugger
+        .then(res => {  
             dispatch(setTasks(userId)) 
         })
 }
@@ -90,3 +88,18 @@ export const addToArchive = (userId, taskId, bool) => (dispatch) => {
             dispatch(setTasks(userId))
         })
 }
+
+export const editTask = (userId, taskId, value) => (dispatch) => {
+    tasksApi.editTask(taskId, value)
+        .then(res => {
+            dispatch(setTasks(userId))
+        })
+}
+
+export const removeTask = (taskId, userId) => (dispatch) => {
+    tasksApi.removeTask(taskId)
+        .then(res => {
+            dispatch(setTasks(userId))
+        })
+}
+
