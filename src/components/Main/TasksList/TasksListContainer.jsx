@@ -1,7 +1,7 @@
 import React from 'react'; 
 import TasksList from './TasksList';
 import { connect } from 'react-redux';
-import { addToImportant, addToArchive } from '../../../reducers/tasksReducer';
+import { addToImportant, addToArchive, removeTask, editTask } from '../../../reducers/tasksReducer';
 
 class TasksListContainer extends React.Component {
     render() {
@@ -16,4 +16,4 @@ const mstp = (state) => {
     })
 }
 
-export default connect(mstp, { addToImportant, addToArchive })(TasksListContainer);
+export default connect(mstp, { addToImportant, addToArchive, removeTask, editTask })(TasksListContainer);
