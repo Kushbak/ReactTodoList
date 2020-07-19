@@ -4,6 +4,8 @@
     align-items: center;
 }
 .task{
+    display: flex;
+    justify-content: space-between;
     width: 90%;
     border: 1px solid #999;
     margin-top: 10px;
@@ -13,4 +15,26 @@
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
+}
+
+.task__descr{
+    border: none;
+    background: none;
+    color: #000;
+    font-size: 14px;
+    height: 30px;
+}
+ 
+.valueBlock{
+    flex-basis: 70%;
+}
+.btnBlock{
+    flex-basis: 20%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.btnBlock button{
+    width: 80px;
+    height: 30px;
 }

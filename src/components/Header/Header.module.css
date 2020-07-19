@@ -3,6 +3,6 @@
     display: flex;
     justify-content: space-between; 
     padding: 0px 20px;
-    align-items: center;
-    background: rgba(3, 184, 48, 1);
+    align-items: center; 
+    background: rgba(65, 63, 61, 0.9);
 }
