@@ -1,0 +1,8 @@
+.toggleBlock {
+    margin-top: 10px;
+}
+
+.toggleBlock > label{ 
+    cursor: pointer;
+    margin-right: 10px;
+}
