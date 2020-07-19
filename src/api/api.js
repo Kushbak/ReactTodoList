@@ -29,6 +29,14 @@ export const tasksApi = {
         return instance.patch(`tasks/${taskId}`, {
             "isArchived": bool
         })
+    },
+    editTask(taskId, value){
+        return instance.patch(`tasks/${taskId}`, {
+            "description": value
+        })
+    },
+    removeTask(taskId){
+        return instance.delete(`tasks/${taskId}`)
     }
 }
 
