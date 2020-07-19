@@ -6,7 +6,7 @@ const Navbar = (props) => {
     return(
         <div className={styles.navbarBlock}>
             <NavLink className={styles.navbarBlock__link} to='/importantTasks'>Important</NavLink>
-            <NavLink className={styles.navbarBlock__link} to='/archiveTasks'>Archive</NavLink>
+            <NavLink className={styles.navbarBlock__link} to='/archivedTasks'>Archive</NavLink>
         </div>
     )
 }
