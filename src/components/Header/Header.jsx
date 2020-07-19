@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 const Header = (props) => {
     useEffect(() => {
         // if(props.isAuth){
-            props.setTasks(4)
+            props.setTasks(props.userId)
         // }
     })
     return(
