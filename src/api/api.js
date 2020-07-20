@@ -17,6 +17,7 @@ export const tasksApi = {
             "description": data.description,
             "isImportant": data.isImportant,
             "isArchived": data.isArchived, 
+            "isDone": data.isDone,
             "userId": data.userId
         })
     },
@@ -37,6 +38,11 @@ export const tasksApi = {
     },
     removeTask(taskId){
         return instance.delete(`tasks/${taskId}`)
+    },
+    doneTask(taskId, bool){
+        return instance.patch(`tasks/${taskId}`, {
+            "isDone": bool
+        })
     }
 }
 
