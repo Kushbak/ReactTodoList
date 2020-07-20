@@ -8,8 +8,8 @@ const AddTask = (props) => {
             description: formData.taskDescr,
             isImportant: formData.isImportant,
             isArchived: false,
-            userId: props.userId
-            // userId: props.userId
+            isDone: false,
+            userId: props.userId 
         } 
         props.addNewTask(taskData) 
         formData.taskDescr = ''
