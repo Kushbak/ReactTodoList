@@ -29,7 +29,7 @@ export const setAuthUserData = (userData, isAuth) => ({
 export const login = (formData) => (dispatch) => { 
     usersApi.checkUser(formData.fullName)
         .then(r => {
-            if (r.data.length && formData.password == r.data[0].password) {
+            if (r.data.length && formData.password === r.data[0].password) {
                 usersApi.login(r.data[0].id)
                     .then(res => { 
                         dispatch(setAuthUserData(res.data[0], true)); 
