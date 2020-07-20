@@ -46,18 +46,7 @@ export const setTasksSuccess = (tasks) => ({
 export const addNewTaskSuccess = (task) => ({
     type: 'ADD_NEW_TASK',
     task
-})
-
-// export const addToImportantSuccess = (importantTask) => ({
-//     type: 'ADD_TO_IMPORTANT',
-//     importantTask
-// })
-
-// export const addToArchiveSuccess = (archivedTask) => ({
-//     type: 'ADD_TO_ARCHIVE',
-//     archivedTask
-// })
-
+}) 
 
 // Thunks
 
@@ -103,3 +92,9 @@ export const removeTask = (taskId, userId) => (dispatch) => {
         })
 }
 
+export const doneTask = (taskId, userId, bool) => (dispatch) => {
+    tasksApi.doneTask(taskId, bool)
+        .then(res => {
+            dispatch(setTasks(userId))
+        })
+}
