@@ -18,6 +18,7 @@ export const tasksApi = {
             "isImportant": data.isImportant,
             "isArchived": data.isArchived, 
             "isDone": data.isDone,
+            "editMode": data.editMode,
             "userId": data.userId
         })
     },
@@ -42,6 +43,11 @@ export const tasksApi = {
     doneTask(taskId, bool){
         return instance.patch(`tasks/${taskId}`, {
             "isDone": bool
+        })
+    },
+    toggleEditMode(taskId, bool){
+        return instance.patch(`tasks/${taskId}`, {
+            "editMode": bool
         })
     }
 }
