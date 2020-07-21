@@ -10,6 +10,8 @@ import { connect } from 'react-redux';
 import { setTasks } from './reducers/tasksReducer'
 import LoginContainer from './components/Login/LoginContainer';
 
+// TODO: добавить cookie, чтобы при каждой перезагрузке заново не логиниться
+
 class App extends React.Component {  
     render(){
         return (
@@ -30,7 +32,7 @@ class App extends React.Component {
             </div>
         );
     }
-}
+} 
 
 const mstp = (state) => ({ 
     isAuth: state.usersData.isAuth,
