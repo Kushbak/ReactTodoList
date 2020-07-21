@@ -6,6 +6,7 @@ const LoginPage = (props) => {
     const [isLogin, setLogin] = useState(true)
     return (
         <div className={styles.loginPage}>
+            <p>copy repository, install packages, in terminal: <i>'npm run json-run'</i> for run local api and start use</p> 
             { isLogin ? <Login login={ props.login } /> : <Register register={ props.register } />}
             <p className={ styles.LogOrChange }>or
                 { isLogin
