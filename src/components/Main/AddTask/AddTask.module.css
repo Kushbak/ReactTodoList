@@ -4,10 +4,12 @@
     padding: 40px 0;
 }
 .addtTaskForm{
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 .inputTask{
     background: none;
@@ -20,6 +22,9 @@
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
+}  
+.isImportant{
+    margin-right: 3px;
 }
 .addBtn{
     width: 100px;
