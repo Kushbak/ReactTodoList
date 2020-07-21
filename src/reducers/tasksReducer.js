@@ -17,7 +17,7 @@ export const tasksReducer = (state = initialState, action) => {
             }
             return {
                 ...state,
-                tasks: [newTask, ...state.tasks]    // либо можно этот кейс удалить и при создании нового таска перевызвать SET_TASKS
+                tasks: [...state.tasks, newTask]    // либо можно этот кейс удалить и при создании нового таска перевызвать SET_TASKS
             } 
         } 
         default:
