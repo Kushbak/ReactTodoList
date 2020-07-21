@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
 }
+
 .task{
     display: flex;
     justify-content: space-between;
@@ -31,20 +32,22 @@
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
 }
+
 .task__editMode{
-    border: 1px solid grey;
-    
+    border: 1px solid grey; 
 }
  
 .valueBlock{
     flex-basis: 70%;
 }
+
 .btnBlock{
     flex-basis: 30%;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
+
 .btnBlock button{
     width: 80px;
     height: 30px;
