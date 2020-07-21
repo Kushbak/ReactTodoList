@@ -13,10 +13,7 @@ const Header = (props) => {
             <div className={styles.logo}>
                 <NavLink to='/' className={styles.logo}>Todo List</NavLink> 
             </div>
-            {props.isAuth
-                ? <p>{ props.fullName }</p>
-                : <button className={styles.changeTheme}>Change</button>
-            }
+            { props.isAuth && <p>{ props.fullName }</p> }
             
         </div>
     )
