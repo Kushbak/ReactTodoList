@@ -18,7 +18,7 @@ export const usersReducer = (state = initialState, action) => {
     }
 }
 
-
+// TODO: Сделать валидацию для регистрации и логина 
 
 export const setAuthUserData = (userData, isAuth) => ({
     type: 'SET_AUTH_USER_DATA',
@@ -46,11 +46,10 @@ export const logout = () => (dispatch) => {
 
 export const register = (formData) => (dispatch) => {
     usersApi.checkUser(formData.newName)
-        .then(r => {
-            if (r.status === 400) {
+        .then(r => { 
+            if (r.data.length > 0) { 
                 dispatch(stopSubmit('register', { _error: 'Такое имя пользователя уже существует' }));
-            }
-            else {
+            } else {
                 usersApi.register(formData)
                     .then(r => {
                         if (r.status === 201) {
