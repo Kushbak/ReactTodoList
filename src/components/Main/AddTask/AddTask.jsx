@@ -9,6 +9,7 @@ const AddTask = (props) => {
             isImportant: formData.isImportant,
             isArchived: false,
             isDone: false,
+            editMode: false,
             userId: props.userId 
         } 
         props.addNewTask(taskData) 
@@ -18,8 +19,11 @@ const AddTask = (props) => {
     return(
         <div className={styles.addTaskBlock}>
             <form onSubmit={props.handleSubmit(submitTask)} className={styles.addtTaskForm}>
-                <Field className={styles.inputTask} component='input' name='taskDescr' type='text' placeholder='What Do You Wanna Do?' /> 
-                <Field className={styles.isImportant} component='input' name='isImportant' type='checkbox' /> 
+                <Field className={styles.inputTask} component='input' name='taskDescr' type='text' placeholder='What Do You Wanna Do?' autocomplete="off" /> 
+                <span>
+                    <Field className={styles.isImportant} component='input' name='isImportant' type='checkbox' /> 
+                    Important
+                </span>
                 { props.error && <div className={styles.wrongData}>{ props.error }</div> }
                 <button className={styles.addBtn}>Add</button>
             </form>
