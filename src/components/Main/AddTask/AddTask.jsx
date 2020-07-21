@@ -19,7 +19,7 @@ const AddTask = (props) => {
     return(
         <div className={styles.addTaskBlock}>
             <form onSubmit={props.handleSubmit(submitTask)} className={styles.addtTaskForm}>
-                <Field className={styles.inputTask} component='input' name='taskDescr' type='text' placeholder='What Do You Wanna Do?' autocomplete="off" /> 
+                <Field className={styles.inputTask} component='input' name='taskDescr' type='text' placeholder='What Do You Wanna Do?' autoComplete="off" /> 
                 <span>
                     <Field className={styles.isImportant} component='input' name='isImportant' type='checkbox' /> 
                     Important
